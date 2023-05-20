@@ -3,6 +3,29 @@ name = "ruwet"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+tokio = { version = "1", features = ["macros"] }
+serde_json = { version = "1", features = ["raw_value"] }
+# Documentation: https://docs.rs/vercel_runtime/latest/vercel_runtime
+vercel_runtime = "0.3.4"
+log = "0.4"
+pretty_env_logger = "0.4"
+teloxide = "0.12.2"
+
+# You can specify a library for shared logic here (optional)
+# [lib]
+# path = "src-rs/lib.rs"
+
+# Each handler has to be specified as [[bin]]
+[[bin]]
+name = "handler"
+path = "api/handler.rs"
+
+# Note that you need to provide unique names for each binary:
+# [[bin]]
+# name = "user-id"
+# path = "api/user/[id].rs"
+#
+# [[bin]]
+# name = "group-id"
+# path = "api/group/[id].rs"
